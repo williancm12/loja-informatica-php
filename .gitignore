@@ -1,0 +1,4 @@
+# Fotos enviadas pelo sistema durante os testes não vão para o repositório.
+public/uploads/*
+!public/uploads/.gitkeep
+!public/uploads/.htaccess

@@ -1,0 +1,4 @@
+# A pasta de uploads guarda só imagens: nenhum script PHP pode rodar aqui.
+<FilesMatch "\.(php|phtml|phar|php\d)$">
+    Require all denied
+</FilesMatch>
