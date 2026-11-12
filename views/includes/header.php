@@ -35,7 +35,7 @@ $menu = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= e($titulo ?? 'Início') ?> | <?= e(NOME_LOJA) ?></title>
     <link rel="icon" href="<?= asset('img/logo.svg') ?>" type="image/svg+xml">
-    <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
+    <link rel="stylesheet" href="<?= assetVersionado('css/style.css') ?>">
     <script>
         // Aplica o tema escolhido antes de desenhar a página, para não piscar o tema claro.
         try {

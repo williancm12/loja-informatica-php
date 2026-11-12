@@ -1,0 +1,2 @@
+# Esta pasta só é usada pelo PHP (include/require). O navegador não acessa nada aqui.
+Require all denied

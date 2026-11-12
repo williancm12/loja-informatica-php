@@ -1,0 +1,2 @@
+# Não mostra a lista de arquivos quando alguém abre uma pasta sem index.
+Options -Indexes

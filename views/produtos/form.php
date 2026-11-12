@@ -36,7 +36,7 @@ $estoquePrevia = max(0, (int) $dados['estoque']);
             <span><?= e($titulo) ?></span>
         </nav>
         <h1><?= e($titulo) ?></h1>
-        <p class="subtitulo">Campos com * são obrigatórios. A prévia ao lado mostra como o produto vai aparecer na loja.</p>
+        <p class="subtitulo">Campos com * são obrigatórios. A prévia mostra como o produto vai aparecer na loja.</p>
     </div>
 </section>
 

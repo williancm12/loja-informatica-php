@@ -367,10 +367,13 @@ img {
     display: none;
 }
 
+/* O conteúdo ocupa toda a largura disponível; em telas muito largas
+   para em 1680px e fica centralizado */
 .conteudo {
     flex: 1;
     width: 100%;
-    max-width: 1280px;
+    max-width: 1680px;
+    margin: 0 auto;
     padding: 28px 32px 28px;
     display: flex;
     flex-direction: column;
@@ -670,9 +673,12 @@ img {
     justify-content: center;
 }
 
+/* O tamanho acompanha a largura da tela (entre 24px e 34px) para
+   valores como "R$ 99.769,50" caberem numa linha só */
 .indicador-valor {
     font-family: var(--fonte-titulo);
-    font-size: 34px;
+    font-size: clamp(24px, 2.2vw, 34px);
+    white-space: nowrap;
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.02em;

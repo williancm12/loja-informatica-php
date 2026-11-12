@@ -28,7 +28,8 @@ define('DB_USUARIO', 'root');
 define('DB_SENHA', '');
 
 // Quantidade de produtos mostrados em cada página da listagem.
-define('ITENS_POR_PAGINA', 8);
+// 12 divide certinho em 2, 3, 4 e 6 colunas, então a grade fica completa em qualquer tela.
+define('ITENS_POR_PAGINA', 12);
 
 // Produtos com estoque menor ou igual a este valor aparecem como "estoque baixo".
 define('LIMITE_ESTOQUE_BAIXO', 5);

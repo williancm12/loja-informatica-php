@@ -42,6 +42,15 @@ function asset(string $caminho): string
     return BASE_URL . '/' . ltrim($caminho, '/');
 }
 
+// Igual ao asset(), mas com a data de alteração do arquivo no final (?v=...).
+// Quando o CSS ou o JS muda, o navegador baixa a versão nova em vez de usar a guardada.
+function assetVersionado(string $caminho): string
+{
+    $arquivo = __DIR__ . '/../public/' . ltrim($caminho, '/');
+    $versao  = is_file($arquivo) ? filemtime($arquivo) : 0;
+    return asset($caminho) . '?v=' . $versao;
+}
+
 // Redireciona o navegador para outro endereço e encerra o script.
 function redirecionar(string $destino): void
 {

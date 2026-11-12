@@ -19,6 +19,16 @@ categoria), com cadastro, consulta, edição e exclusão completos.
 
 Turma: ESOFT2
 
+## Arquivos da entrega
+
+| O quê | Onde |
+|-------|------|
+| Código-fonte, imagens e fontes | todo este repositório |
+| **Script do banco de dados** | [`database.sql`](database.sql): cria o banco `loja_informatica`, as tabelas `categorias` e `produtos` e os dados de exemplo |
+
+Testado no **XAMPP 8.2.12** (Apache 2.4.58, PHP 8.2.12 e MariaDB 10.4.32), com o banco importado pela opção **Importar** do phpMyAdmin.
+O passo a passo está em [Como rodar no XAMPP](#como-rodar-no-xampp).
+
 ## Funcionalidades
 
 **Painel (página inicial)**
@@ -33,7 +43,7 @@ Turma: ESOFT2
 - Busca por nome ou marca, filtro por categoria e cinco opções de ordenação.
 - Filtros rápidos **Todos**, **Estoque baixo** e **Esgotados**, com a quantidade de cada um.
 - Exibição em **tabela** ou em **grade de cartões**. No celular, cada linha da tabela vira um cartão.
-- Paginação (8 produtos por página) que mantém a busca, os filtros e a forma de exibição.
+- Paginação (12 produtos por página) que mantém a busca, os filtros e a forma de exibição.
 - Página de detalhes com alerta de estoque baixo, valor em estoque, datas e outros produtos da mesma categoria.
 - Formulário dividido em seções, com **prévia ao vivo** de como o produto vai aparecer na loja, botões − e + no estoque, contador de caracteres e botão "Salvar e cadastrar outro".
 - **Upload de foto** (JPG, PNG, WEBP ou GIF até 2 MB) clicando ou **arrastando o arquivo**, com opção de remover a foto. Produto sem foto mostra o ícone da categoria.
@@ -46,6 +56,7 @@ Turma: ESOFT2
 - Uma categoria que ainda tem produtos não pode ser excluída. O botão fica desabilitado, o sistema avisa e o banco também impede (`ON DELETE RESTRICT`).
 
 **Interface**
+- Layout responsivo: o conteúdo ocupa toda a largura do monitor e as grades ganham ou perdem colunas conforme o tamanho da tela.
 - Menu lateral no computador. No celular, barra no topo, menu na parte de baixo e botão "+" flutuante.
 - **Modo escuro**, ligado pelo botão do menu e lembrado pelo navegador.
 - Aviso flutuante depois de salvar ou excluir, que some sozinho quando é sucesso.
@@ -59,6 +70,7 @@ Turma: ESOFT2
 - Formulários com token CSRF, e a exclusão só é aceita por POST, com confirmação antes.
 - Validação no servidor com a mensagem de erro ao lado de cada campo, sem perder o que foi digitado.
 - Páginas amigáveis para erro 404 e para falha de conexão com o MySQL.
+- No Apache, o navegador só acessa a pasta `public/`. As pastas internas (`config`, `controllers`, `helpers`, `models` e `views`) têm um `.htaccess` que bloqueia o acesso direto.
 - O sistema funciona mesmo com o JavaScript desligado. O JavaScript só acrescenta melhorias.
 
 ## Tecnologias
@@ -122,11 +134,17 @@ Ele também insere 7 categorias e 16 produtos de exemplo. A categoria *Impressor
 
 ## Como rodar no XAMPP
 
-1. Copie a pasta `loja_informatica` para `C:\xampp\htdocs\`.
+1. Coloque o projeto dentro de `C:\xampp\htdocs\`, de um destes jeitos:
+   - **Clonando com o Git:** abra um terminal na pasta `C:\xampp\htdocs` e rode
+     `git clone https://github.com/williancm12/loja-informatica-php.git`.
+     A pasta criada se chama `loja-informatica-php`.
+   - **Baixando o ZIP:** no GitHub, clique em **Code → Download ZIP** e extraia o arquivo em `C:\xampp\htdocs\`.
+     A pasta extraída se chama `loja-informatica-php-main`.
 2. Abra o **XAMPP Control Panel** e clique em **Start** no **Apache** e no **MySQL**.
-3. Acesse `http://localhost/phpmyadmin`, abra a aba **Importar**, escolha o arquivo `database.sql` e clique em **Importar**.
+3. Acesse `http://localhost/phpmyadmin`, abra a aba **Importar**, escolha o arquivo `database.sql` (na raiz do projeto) e clique em **Importar**.
    (Outra opção é abrir a aba **SQL**, colar o conteúdo do arquivo e executar.)
-4. Abra `http://localhost/loja_informatica/` no navegador.
+4. Abra no navegador `http://localhost/` seguido do nome da pasta, por exemplo
+   `http://localhost/loja-informatica-php/` (ou `http://localhost/loja-informatica-php-main/` se baixou o ZIP).
 
-Se o MySQL tiver senha, ou se você quiser outro nome de banco, altere as constantes `DB_*` em `config/config.php`.
 O sistema calcula o próprio endereço sozinho, então a pasta pode ter qualquer nome dentro do `htdocs`.
+Ele usa a configuração padrão do XAMPP (usuário `root` sem senha). Se o MySQL tiver senha, ou se você quiser outro nome de banco, altere as constantes `DB_*` em `config/config.php`.

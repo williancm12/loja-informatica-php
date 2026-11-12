@@ -61,6 +61,6 @@ Descritivo: Rodapé comum a todas as páginas: créditos, menu inferior do
         </div>
     </dialog>
 
-    <script src="<?= asset('js/app.js') ?>"></script>
+    <script src="<?= assetVersionado('js/app.js') ?>"></script>
 </body>
 </html>
